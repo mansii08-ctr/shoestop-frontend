@@ -3,10 +3,11 @@ import './cart.css'
 import { Button, Container } from 'react-bootstrap'
 import { productContext } from '../contextAPI/Context'
 import axios from 'axios'
+import { API_BASE_URL } from '../../config'
 
 const Cart = () => {
 
-  const url = "http://localhost:5000/api/addcart"
+  const url = `${API_BASE_URL}/api/addcart`
 
   const { cartProduct, setCartProducts,getcart} = useContext(productContext)
   const [total, setTotal] = useState(0)

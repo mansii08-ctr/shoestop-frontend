@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { createContext, useEffect, useState } from 'react';
+import { API_BASE_URL } from '../../config';
 
 export const productContext = createContext();
 
@@ -21,7 +22,7 @@ const Context = ({ children }) => {
           Authorization: `Bearer ${token}`,
         };
 
-        const response = await axios.get('http://localhost:5000/api/addfav', { headers });
+        const response = await axios.get(`${API_BASE_URL}/api/addfav`, { headers });
         setFavProductList(response.data);
       }
     } catch (error) {
@@ -37,7 +38,7 @@ const Context = ({ children }) => {
           Authorization: `Bearer ${token}`,
         };
 
-        const response = await axios.get('http://localhost:5000/api/addcart', { headers });
+        const response = await axios.get(`${API_BASE_URL}/api/addcart`, { headers });
         setCartProducts(response.data);
       }
     } catch (error) {

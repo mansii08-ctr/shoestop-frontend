@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import './signup.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { API_BASE_URL } from '../../config'
 
 const Signup = () => {
 
@@ -11,7 +12,7 @@ const Signup = () => {
   const [email, setMail] = useState('')
   const [password, setPassword] = useState('')
 
-  const url = "http://localhost:5000/signup"
+  const url = `${API_BASE_URL}/signup`
 
   const changeNameHandler = (e) => {
       setName(e.target.value)

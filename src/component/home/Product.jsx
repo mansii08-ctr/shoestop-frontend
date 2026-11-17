@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import './home.css'
 import { Button } from 'react-bootstrap'
 import { productContext } from '../contextAPI/Context'
+import { API_BASE_URL } from '../../config'
 
 const Product = () => {
 
@@ -11,7 +12,7 @@ const Product = () => {
     const { token } = useContext( productContext )
 
     const fetchData = async () => {
-        await axios.get("http://localhost:5000/api/getproducts")
+        await axios.get(`${API_BASE_URL}/api/getproducts`)
             .then(res => setProducts(res.data))
     }
 
@@ -24,7 +25,7 @@ const Product = () => {
             Authorization: `Bearer ${token}`,
           };
         console.log(image,title,company,price);
-        axios.post('http://localhost:5000/api/addfav', {
+        axios.post(`${API_BASE_URL}/api/addfav`, {
             image,title,company,price
           },{
             headers
@@ -48,7 +49,7 @@ const Product = () => {
     const addtoCart = (image,title,company,price) =>{
         console.log(token);
         
-        axios.post('http://localhost:5000/api/addcart', {
+        axios.post(`${API_BASE_URL}/api/addcart`, {
             image,title,company,price
           },{
             headers : {

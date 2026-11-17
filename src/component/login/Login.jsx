@@ -3,6 +3,7 @@ import '../signup/signup.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { productContext } from '../contextAPI/Context'
+import { API_BASE_URL } from '../../config'
 
 const Login = () => {
     const navigate = useNavigate()
@@ -10,7 +11,7 @@ const Login = () => {
     const [email, setMail] = useState('')
     const [password, setPassword] = useState('')
   
-    const url = "http://localhost:5000/login"
+    const url = `${API_BASE_URL}/login`
  
     const changeMailHandler = (e) => {
         setMail(e.target.value)
